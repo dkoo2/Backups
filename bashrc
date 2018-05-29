@@ -22,9 +22,13 @@ if [ -f '/Users/dhkoo/google-cloud-sdk/completion.bash.inc' ]; then source '/Use
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
 
-export SUBMISSION_PASSWD=$(python -c 'print "APQrfkRIou7XPKDCpaVvUZ"')
-export ANDREW_ID=$(python -c 'print "dkoo2"')
+
 export TERM="xterm-color" 
-export PS1='\[\e[0;97m\]\u\[\e[0m\]@\[\e[0;97m\]\h\[\e[0m\]:\[\e[0;33m\]\w\[\e[0m\]\$ '
+export PS1='\[\e[1;32m\]\u\[\e[00m\]@\[\e[2;36m\]\h\[\e[0m\]:\[\e[0;33m\]\w\[\e[0m\]\$ '
+
+if command -v tmux>/dev/null; then
+  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+fi
+
 alias ls="ls -G"
 
